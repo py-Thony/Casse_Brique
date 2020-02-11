@@ -27,7 +27,7 @@ while continue_game:
     clock = pygame.time.Clock()
 
 
-    VIES = 3
+    VIES = 1
 
     LISTE_GLOBALE_SPRITES = pygame.sprite.Group()
     LISTE_RAQUETTE_BRIQUES = pygame.sprite.Group()
@@ -63,25 +63,24 @@ while continue_game:
             FENETRE.blit(replay_screen, (0, 0))
             pygame.display.flip()
 
-            event = pygame.event.wait()
-            for event in pygame.event.get():
-                if event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_Y or pygame.K_y:
-                        ii = 20
-                        while ii > 0:
-                            FENETRE.blit(restart0, (0, 0))
-                            pygame.time.wait(iii)
-                            iii -= 15
-                            pygame.display.flip()
-                            FENETRE.blit(restart1, (0, 0))
-                            pygame.time.wait(iii)
-                            iii -= 35
-                            ii -= 1
-                            pygame.display.flip()
-                elif event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_N or pygame.K_n:
-                        pygame.quit()
-                        sys.exit()
+            pygame.event.wait()
+            key_pressed = pygame.key.get_pressed()
+            if key_pressed[pygame.K_y or pygame.K_Y]:
+                ii = 20
+                while ii > 0:
+                    FENETRE.blit(restart0, (0, 0))
+                    pygame.time.wait(iii)
+                    iii -= 15
+                    pygame.display.flip()
+                    FENETRE.blit(restart1, (0, 0))
+                    pygame.time.wait(iii)
+                    iii -= 35
+                    ii -= 1
+                    pygame.display.flip()
+                    replay = False
+            elif key_pressed[pygame.K_n or pygame.K_N]:
+                pygame.quit()
+                sys.exit()
         loose_scene = False
         pygame.display.update()
     for i in range(8):
