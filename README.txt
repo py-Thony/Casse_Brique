@@ -26,3 +26,5 @@ Concernant les modalités de modification:
                             - Respecter "Code Propre"
                             - Minimiser l'usage de commentaires:
                                     - Le code doit se comprendre simplement
+
+( Si un commentaire devient indispensable, il faut alors se demander comment rendre plus clair le code)
